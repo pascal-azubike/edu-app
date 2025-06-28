@@ -17,6 +17,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
 }
 
 async function verifyUserOrRedirect() {
+	// commets
 	const cookieStore = await cookies();
 	console.log(cookieStore);
 	const authToken = cookieStore.get('access_token');
