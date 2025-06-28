@@ -18,8 +18,10 @@ export default async function DashboardLayout({ children }: { children: React.Re
 
 async function verifyUserOrRedirect() {
 	const cookieStore = await cookies();
+	console.log(cookieStore);
 	const authToken = cookieStore.get('access_token');
 	const tokenValue = authToken?.value;
+	console.log(tokenValue);
 	if (tokenValue === undefined || tokenValue === null || tokenValue === '') {
 		redirect('/login');
 	}
@@ -31,7 +33,8 @@ async function verifyUserOrRedirect() {
 				Authorization: `Bearer ${tokenValue}`,
 			},
 		});
-	} catch {
+	} catch (error) {
+		console.log(error);
 		redirect('/login');
 	}
 }
