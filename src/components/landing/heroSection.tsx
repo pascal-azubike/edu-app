@@ -87,12 +87,12 @@ const SocialProof = () => (
 						'bg-muted border-2 border-background',
 					)}>
 					<Image
-						src={`https://randomuser.me/api/portraits/men/${i + AVATAR_ID_OFFSET}.jpg`}
+						src={`https://randomuser.me/api/portraits/men/23.jpg`}
 						alt={`Student ${i}`}
 						className="h-full w-full object-cover"
 						height={40}
 						width={40}
-					/>
+					/> 
 				</div>
 			))}
 		</div>
