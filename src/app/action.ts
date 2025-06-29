@@ -6,10 +6,8 @@ import { AuthApi } from '@/generated/apis/auth-api';
 import { UserCreate, UserResponse, UserUpdate } from '@/generated/models';
 import { LoginCredentials } from '@/types/auth-types';
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
-
 const API_CONFIG = new Configuration({
-	basePath: IS_PRODUCTION ? process.env.NEXT_PUBLIC_API_URL : '',
+	basePath: process.env.NEXT_PUBLIC_API_URL,
 });
 
 const DEFAULT_API = new DefaultApi(API_CONFIG);
@@ -29,9 +27,11 @@ export async function registerUser(userInfo: UserCreate): Promise<UserResponse> 
 	return response.data;
 }
 
-export async function initiateGoogleOAuth(): Promise<void> {
-	// This will redirect to Google OAuth
-	window.location.href = '/api/v1/auth/google';
+export function initiateGoogleOAuth(): void {
+	// Redirect the user to the backend's Google OAuth endpoint
+	const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+	const redirectUrl = new URL('/api/v1/auth/google', baseUrl).toString();
+	window.location.href = redirectUrl;
 }
 
 export async function logoutUser(): Promise<void> {
