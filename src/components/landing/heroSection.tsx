@@ -1,4 +1,5 @@
-"use client"
+/* eslint-disable @next/next/no-img-element */
+'use client';
 import { Button, ButtonSize, ButtonVariant } from '@/components/ui/button';
 import { BookOpen, CheckCircle, ChevronRight, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -6,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Carousel, CarouselAspectRatio } from '../ui/carousel';
 import {
+	AVATAR_ID_OFFSET,
 	CAROUSEL_IMAGES,
 	FEATURES,
 	HERO_BUTTONS,
@@ -85,13 +87,13 @@ const SocialProof = () => (
 						'h-10 w-10 rounded-full flex items-center justify-center overflow-hidden',
 						'bg-muted border-2 border-background',
 					)}>
-					<Image
-						src={`https://randomuser.me/api/portraits/men/23.jpg`}
+					<img
+						src={`https://randomuser.me/api/portraits/men/${i + AVATAR_ID_OFFSET}.jpg`}
 						alt={`Student ${i}`}
-						className="h-full w-full object-cover"
-						height={40}
 						width={40}
-					/> 
+						height={40}
+						className="h-full w-full object-cover"
+					/>
 				</div>
 			))}
 		</div>
