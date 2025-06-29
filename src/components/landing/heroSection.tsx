@@ -6,7 +6,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Carousel, CarouselAspectRatio } from '../ui/carousel';
 import {
-	AVATAR_ID_OFFSET,
 	CAROUSEL_IMAGES,
 	FEATURES,
 	HERO_BUTTONS,
